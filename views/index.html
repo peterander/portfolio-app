@@ -5,10 +5,10 @@
     <title>Portfolio</title>
     <!-- bootstrap css -->
     <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css" />
-    <!-- bootstrap js -->
-    <script type="text/javascript" src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- jquery -->
     <script type="text/javascript" src="libs/jquery/dist/jquery.min.js"></script>
+    <!-- bootstrap js -->
+    <script type="text/javascript" src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- jumbotron css -->
     <link rel="stylesheet" href="styles/jumbotron.css" />
     <!-- angular js -->
@@ -54,7 +54,7 @@
 
     <!-- Main content area with portfolio items -->
     <div class="container" ng-controller="PortfolioCtrl">
-      <!-- Row of portfolio site objects -->
+      <!-- Row of portfolio item objects -->
       <div class="row">
         <div class="col-md-4" ng-repeat="site in sites">
           <h2>{{site.name}}</h2>
@@ -63,24 +63,19 @@
         </div>
       </div>
       <!-- begin preview form and data binding experiment -->
-      <hr />
       <div class="row">
-          <div class="col-md-8">
-            <form name="addSiteForm" ng-controller="AddSiteController as addSiteCtrl" ng-submit="AddSiteCtrl.addSite(portfolioItem)">
+          <div class="col-md-6">
+            <form name="addSiteForm" ng-controller="SiteController" ng-submit="addSite()">
               <h2>Add site</h2>
               <p>Enter site properties, then preview and submit.</p>
-              <input ng-model="addSiteCtrl.site.name" type="text" class="form-control" placeholder="Site name">
-              <textarea ng-model="addSiteCtrl.site.description" class="form-control" rows="3" placeholder="Enter description"></textarea>
-              <input ng-model="addSiteCtrl.site.url" type="text" class="form-control" placeholder="Site url">
+              <input ng-model="site.name" type="text" class="form-control" placeholder="Site name" />
+              <textarea ng-model="site.description" class="form-control" rows="3" placeholder="Enter description"></textarea>
+              <input ng-model="site.url" type="text" class="form-control" placeholder="Site url" />
               <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-          </div>
-          <div class="col-md-4">
-            <form name="addSitePreview">
-              <h2>Preview new site</h2>
-              <h2>{{addSiteCtrl.site.name}}</h2>
-              <p>{{addSiteCtrl.site.description}}</p>
-              <p><a class="btn btn-default" href="{{addSiteCtrl.site.url}}" target="_blank" role="button">Enter &raquo;</a> {{site.url}}</p>
+                <h2>Preview new site</h2>
+                <h2>{{site.name}}</h2>
+                <p>{{site.description}}</p>
+                <p><a class="btn btn-default" href="{{site.url}}" target="_blank" role="button">Enter &raquo;</a> {{site.url}}</p>
             </form>
           </div>
       </div>
