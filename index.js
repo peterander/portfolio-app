@@ -11,8 +11,8 @@ app.use(express.static(__dirname + '/public'));
 
 
 // routes ================
-var blar = require('./routes/portfolio.js');
+var portfolio = require('./routes/portfolio.js');
 
-app.get('/', blar.index);
+app.get('/', portfolio.index);
 app.listen(3000);
 console.log('Listening at http://localhost:3000');

@@ -19,3 +19,11 @@ app.controller('PortfolioCtrl', function($scope) {
     }
   ];
 });
+
+app.controller('AddSiteController', function($scope) {
+  $scope.site = {};
+
+  $scope.addSite = function(portfolioItem) {
+    portfolioItem.sites.push($scope.site);
+  };
+});
