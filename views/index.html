@@ -62,30 +62,30 @@
           <p><a class="btn btn-default" href="{{site.url}}" role="button">Enter &raquo;</a></p>
         </div>
       </div>
+
+
       <!-- begin preview form and data binding experiment -->
+      <hr />
+
       <div class="row">
-          <div class="col-md-6">
-            <form name="addSiteForm" ng-controller="SiteController" ng-submit="addSite()">
-              <h2>Add site</h2>
+        <form name="addSiteForm" ng-controller="SiteController" ng-submit="addSite()">
+            <div class="col-md-4">
+              <h2>Data binding experiment</h2>
+              <h3>Add site</h3>
               <p>Enter site properties, then preview and submit.</p>
               <input ng-model="site.name" type="text" class="form-control" placeholder="Site name" />
-              <textarea ng-model="site.description" class="form-control" rows="3" placeholder="Enter description"></textarea>
-              <input ng-model="site.url" type="text" class="form-control" placeholder="Site url" />
+              <textarea ng-model="site.description" class="form-control" rows="3" placeholder="Description"></textarea>
+              <input ng-model="site.url" type="text" class="form-control" placeholder="url" />
               <button type="submit" class="btn btn-default">Submit</button>
-                <h2>Preview new site</h2>
-                <h2>{{site.name}}</h2>
-                <p>{{site.description}}</p>
-                <p><a class="btn btn-default" href="{{site.url}}" target="_blank" role="button">Enter &raquo;</a> {{site.url}}</p>
-            </form>
-          </div>
+            </div>
+            <div class="col-md-4">
+              <h2>{{site.name}}</h2>
+              <p>{{site.description}}</p>
+            </div>
+        </form>
       </div>
 
-
-
-
-
-
-<!-- end data binding experiment -->
+      <!-- end data binding experiment -->
 
       <hr />
 
