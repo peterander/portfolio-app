@@ -1,8 +1,21 @@
 (function() {
   var app = angular.module('webPortfolio', []);
 
-  app.controller('PortfolioCtrl', function($scope) {
-    $scope.sites = [{
+  app.controller('PortfolioController', function($scope) {
+    $scope.sites = sites;
+  });
+
+
+  app.controller('SiteController', function($scope) {
+    $scope.site = {};
+
+    $scope.addSite = function() {
+      sites.push($scope.site);
+      $scope.site = {};
+    };
+  });
+
+var sites = [{
         name: 'Travels',
         description: "Places I've visited around the world.",
         url: 'http://peterander.github.io/travels/index.html'
@@ -15,16 +28,5 @@
         description: "Black and white Sharpee drawings.",
         url: 'http://peterander.github.io/art/index.html'
       }];
-  });
-
-
-  app.controller('SiteController', function($scope) {
-    $scope.site = {};
-
-    $scope.addSite = function() {
-      sites.push($scope.site);
-      $scope.site = {};
-    };
-  });
 
 })();
