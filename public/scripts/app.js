@@ -5,9 +5,26 @@
     $scope.sites = sites;
   });
 
+  app.factory('SitesService', function() {
+    //function
+    function test1() {
+      console.log("test1");
+    }
+    //method (function on object property)
+    return {
+      test2: function() {
+        test1();
+        console.log("test2");
+      }
 
-  app.controller('SiteController', function($scope) {
+    };
+
+  });
+
+  app.controller('SiteController', function($scope, SitesService) {
     $scope.site = {};
+    console.log(SitesService);
+    SitesService.test2();
 
     $scope.addSite = function() {
       sites.push($scope.site);
