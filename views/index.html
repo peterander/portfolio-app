@@ -63,19 +63,17 @@
         </div>
       </div>
 
-
       <!-- begin preview form and data binding experiment -->
       <hr />
 
       <div class="row">
         <form name="addSiteForm" ng-controller="SiteController" ng-submit="addSite()">
             <div class="col-md-4">
-              <h2>Data binding experiment</h2>
-              <h3>Add site</h3>
+              <h2>Add site</h2>
               <p>Enter site properties, then preview and submit.</p>
               <input ng-model="site.name" type="text" class="form-control" placeholder="Site name" />
               <textarea ng-model="site.description" class="form-control" rows="3" placeholder="Description"></textarea>
-              <input ng-model="site.url" type="text" class="form-control" placeholder="url" />
+              <input ng-model="site.url" type="url" class="form-control" placeholder="url" name="homepage" />
               <button type="submit" class="btn btn-default">Submit</button>
             </div>
             <div class="col-md-4">
