@@ -1,38 +1,13 @@
 (function() {
   var app = angular.module('webPortfolio', []);
 
-  app.controller('PortfolioController', function($scope) {
-    $scope.sites = sites;
+  app.controller('PortfolioController', function($scope, SitesService) {
+    $scope.sites = SitesService.getSites();
   });
 
   app.factory('SitesService', function() {
-    //function
-    function test1() {
-      console.log("test1");
-    }
-    //method (function on object property)
-    return {
-      test2: function() {
-        test1();
-        console.log("test2");
-      }
 
-    };
-
-  });
-
-  app.controller('SiteController', function($scope, SitesService) {
-    $scope.site = {};
-    console.log(SitesService);
-    SitesService.test2();
-
-    $scope.addSite = function() {
-      sites.push($scope.site);
-      $scope.site = {};
-    };
-  });
-
-var sites = [{
+      var sites = [{
         name: 'Travels',
         description: "Places I've visited around the world.",
         url: 'http://peterander.github.io/travels/index.html'
@@ -45,5 +20,30 @@ var sites = [{
         description: "Black and white Sharpee drawings.",
         url: 'http://peterander.github.io/art/index.html'
       }];
+
+    //method (function on object property)
+    return {
+      getSites: function(){
+        return sites;
+      },
+      addSite: function(site){
+        sites.push(site);
+      }
+    };
+
+  });
+
+  app.controller('SiteController', function($scope, SitesService) {
+    $scope.site = {};
+    console.log(SitesService);
+
+    $scope.createSite = function(site) {
+      SitesService.addSite(site);
+      console.log(site);
+    };
+
+  });
+
+
 
 })();
